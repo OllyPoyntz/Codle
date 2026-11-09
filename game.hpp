@@ -49,7 +49,7 @@ int gameloop() {
 
         while (attempts_left > 0) {
             // The guess is validated in get_user_guess(), no need to check it again:
-            std::string guess = get_user_guess(guesswords);
+            std::string guess = get_user_guess(guesswords, attempts_left);
 
             // Evaluate the guess against the puzzle:
             bool success = check_guess(guess, puzzle);

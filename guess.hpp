@@ -7,13 +7,14 @@ including actual I/O, validation, and comparison to the word.*/
 namespace codle {
 
 // Take user input until the word is of the correct length and permissible:
-std::string get_user_guess(const std::vector<std::string> valid_words) {
+std::string get_user_guess(const std::vector<std::string> valid_words, const uint8_t guesses_left) {
     // Declare a string to store the guess;
     std::string guess;
     // Repeat until the guess is of appropriate length:
     bool word_valid = false;
+	static const std::string numbers[6] = {"first", "second", "third", "fourth", "fifth", "sixth"};
     while (!word_valid) {
-        std::cout << "Enter your guess.\n->";
+        std::cout << "Enter your " << numbers[6 - guesses_left] << " guess.\n->";
 
         // Read guess from standard input:
         std::getline(std::cin, guess);
